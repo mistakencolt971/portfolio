@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Fotográfico I</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f2ee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #caja {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            background-color: #f5f2ee;
+        }
+
+        /* NAV */
+        .navegador {
+            width: 100%;
+            max-width: 1440px;
+            height: 70px;
+            background-color: #f5f2ee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1a1a1a;
+            box-sizing: border-box;
+            padding: 0 60px;
+        }
+
+        .nombre-nav {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .nombre-nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .ops {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .boton {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .boton a {
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .boton.activo {
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 2px;
+        }
+
+        /* BANNER */
+        #banner {
+            width: 100%;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.78);
+        }
+
+        #titulo-pagina {
+            position: absolute;
+            bottom: 70px;
+            left: 60px;
+            color: #f5f2ee;
+            z-index: 2;
+        }
+
+        #titulo-pagina p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0 0 16px 0;
+            opacity: 0.7;
+        }
+
+        #titulo-pagina h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 90px;
+            line-height: 0.9;
+            margin: 0;
+        }
+
+        #titulo-pagina h1 em {
+            font-style: italic;
+        }
+
+        /* DESCRIPCION */
+        #descripcion {
+            width: 100%;
+            padding: 90px 60px;
+            box-sizing: border-box;
+            display: flex;
+            gap: 120px;
+            align-items: flex-start;
+        }
+
+        .desc-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 13px;
+            color: #999;
+            letter-spacing: 2px;
+            flex-shrink: 0;
+            padding-top: 8px;
+        }
+
+        .desc-texto {
+            max-width: 620px;
+        }
+
+        .desc-texto h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 1.15;
+            margin: 0 0 30px 0;
+            color: #1a1a1a;
+        }
+
+        .desc-texto h2 em {
+            font-style: italic;
+        }
+
+        .desc-texto p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: #444;
+            margin: 0 0 18px 0;
+        }
+
+        .desc-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            flex-shrink: 0;
+            padding-top: 8px;
+        }
+
+        .meta-item span {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        .meta-item p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        /* GALERIA */
+        #galeria {
+            width: 100%;
+            padding: 0 60px 100px 60px;
+            box-sizing: border-box;
+        }
+
+        .label-seccion {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 24px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .fila-fotos {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+
+        .foto-item {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .foto-item.vertical {
+            flex: 0.6;
+        }
+
+        .foto-item img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9);
+            transition: 0.4s;
+        }
+
+        .foto-item:hover img {
+            filter: brightness(1);
+        }
+
+        .foto-item.alta img {
+            height: 560px;
+        }
+
+        /* FOOTER */
+        .bajo {
+            width: 100%;
+            max-width: 1440px;
+            height: 80px;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+        }
+
+        .bajo span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        .bajo .ops {
+            gap: 24px;
+        }
+
+        .bajo .boton {
+            color: #666;
+            font-size: 10px;
+        }
+
+        .bajo .boton a {
+            color: #666;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="caja">
+
+    <nav class="navegador">
+        <div class="nombre-nav">Karim Carrasco</div>
+        <div class="ops">
+            <div class="boton">Inicio</div>
+            <div class="boton"><a href="foto-proyecto1.html">Foto Editorial</a></div>
+            <div class="boton"><a href="foto-urbana.html">Foto Urbana</div>
+            <div class="boton"><a href="afterlife.html">Afterlife</a></div>
+            <div class="boton"><a href="contacto.html">Contacto</a></div>
+        </div>
+    </nav>
+
+    <div id="banner">
+        <img src="img/p1-banner.jpg" alt="Proyecto fotografico 1">
+        <div id="titulo-pagina">
+            <p>Fotografía — 2026</p>
+            <h1>Proyecto<br><em>Fotográfico I</em></h1>
+        </div>
+    </div>
+
+    <div id="descripcion">
+        <div class="desc-num">001</div>
+        <div class="desc-texto">
+            <h2>Fotografía para<br><em>proyecto editorial</em></h2>
+            <p>Estas fotografías fueron realizadas para la identidad visual de un festival de cine.</p>
+            <p>Realizado en estudio para mezclarse con técnicas de medios mixtos.</p>
+        </div>
+        </div>
+    </div>
+
+    <div id="galeria">
+        <div class="label-seccion">Imágenes</div>
+
+        <div class="fila-fotos">
+            <div class="foto-item alta">
+                <img src="img/p1-foto1.jpg" alt="foto 1">
+            </div>
+            <div class="foto-item">
+                <div class="fila-fotos" style="flex-direction: column; gap: 4px;">
+                    <div class="foto-item">
+                        <img src="img/p1-foto2.jpg" alt="foto 2" style="height: 278px;">
+                    </div>
+                    <div class="foto-item">
+                        <img src="img/p1-foto3.jpg" alt="foto 3" style="height: 278px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fila-fotos" style="margin-top: 4px;">
+            <div class="foto-item">
+                <img src="img/p1-foto4.jpg" alt="foto 4">
+            </div>
+            <div class="foto-item">
+                <img src="img/p1-foto5.jpg" alt="foto 5">
+            </div>
+            <div class="foto-item">
+                <img src="img/p1-foto6.jpg" alt="foto 6">
+            </div>
+        </div>
+    </div>
+
+    <div class="bajo">
+        <span>Karim Carrasco</span>
+        <div class="ops">
+            <div class="boton"><a href="foto-urbana.html">Siguiente proyecto →</a></div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f2ee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #caja {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            background-color: #f5f2ee;
+        }
+
+        .navegador {
+            width: 100%;
+            max-width: 1440px;
+            height: 70px;
+            background-color: #f5f2ee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1a1a1a;
+            box-sizing: border-box;
+            padding: 0 60px;
+        }
+
+        .nombre-nav {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #1a1a1a;
+            text-transform: uppercase;
+        }
+
+        .ops {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .boton {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .boton a {
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        #hero {
+            width: 100%;
+            height: 92vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        #hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.82);
+        }
+
+        #texto-hero {
+            position: absolute;
+            bottom: 80px;
+            left: 60px;
+            color: #f5f2ee;
+            z-index: 2;
+        }
+
+        #texto-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 100px;
+            line-height: 0.95;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        #texto-hero h1 em {
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        #texto-hero p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 18px 0 0 0;
+        }
+
+        #intro {
+            width: 100%;
+            padding: 100px 60px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .intro-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #999;
+            letter-spacing: 2px;
+            width: 80px;
+            flex-shrink: 0;
+        }
+
+        .intro-texto {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 300;
+            line-height: 1.25;
+            color: #1a1a1a;
+            max-width: 780px;
+        }
+
+        .intro-texto em {
+            font-style: italic;
+        }
+
+        .intro-lado {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+            padding-top: 6px;
+        }
+
+        .intro-lado span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        #proyectos {
+            width: 100%;
+            padding: 0 60px 100px 60px;
+            box-sizing: border-box;
+        }
+
+        .label-seccion {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 40px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .proyecto-fila {
+            display: flex;
+            gap: 2px;
+        }
+
+        .proyecto-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .proyecto-item.grande {
+            flex: 1.6;
+        }
+
+        .proyecto-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.75);
+            transition: 0.5s;
+        }
+
+        .proyecto-item:hover img {
+            filter: brightness(0.55);
+            transform: scale(1.02);
+        }
+
+        .proyecto-info {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: #f5f2ee;
+        }
+
+        .proyecto-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 34px;
+            font-weight: 400;
+            margin: 0 0 6px 0;
+            line-height: 1.1;
+        }
+
+        .proyecto-info h3 em {
+            font-style: italic;
+        }
+
+        .proyecto-info span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        .proyecto-item a {
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        .bajo {
+            width: 100%;
+            max-width: 1440px;
+            height: 80px;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+        }
+
+        .bajo span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        .bajo .ops {
+            gap: 24px;
+        }
+
+        .bajo .boton {
+            color: #666;
+            font-size: 10px;
+        }
+
+        .bajo .boton a {
+            color: #666;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="caja">
+
+    <nav class="navegador">
+        <div class="nombre-nav">Karim Carrasco</div>
+        <div class="ops">
+            <div class="boton">Inicio</div>
+            <div class="boton"><a href="foto-proyecto1.html">Foto Editorial</a></div>
+            <div class="boton"><a href="foto-urbana.html">Foto Urbana</div>
+            <div class="boton"><a href="afterlife.html">Afterlife</a></div>
+            <div class="boton"><a href="contacto.html">Contacto</a></div>
+        </div>
+    </nav>
+
+    <div id="hero">
+        <img src="img/hero.jpg" alt="portfolio">
+        <div id="texto-hero">
+            <h1>Fotografía<br><em>& Dirección</em><br>Creativa</h1>
+            <p>Karim — Portfolio 2026</p>
+        </div>
+    </div>
+
+    <div id="intro">
+        <div class="intro-num">001</div>
+        <div class="intro-texto">
+            Explorando la imagen como lenguaje,<br>
+            <em>el espacio urbano como archivo</em><br>
+            y la dirección creativa como forma de escucha.
+        </div>
+        <div class="intro-lado">
+            <span>Sonora, México</span>
+            <span>2026</span>
+        </div>
+    </div>
+
+    <div id="proyectos">
+        <div class="label-seccion">Trabajo seleccionado</div>
+
+        <div class="grid">
+            <div class="proyecto-fila">
+                <div class="proyecto-item grande">
+                    <a href="foto-proyecto1.html">
+                        <img src="img/placeholder1.jpg" alt="Proyecto fotografico 1">
+                        <div class="proyecto-info">
+                            <h3>Proyecto<br><em>Fotográfico I</em></h3>
+                            <span>Fotografía — 2026</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="proyecto-item">
+                    <a href="foto-urbana.html">
+                        <img src="img/placeholder2.jpg" alt="Fotografia urbana">
+                        <div class="proyecto-info">
+                            <h3>Fotografía<br><em>Urbana</em></h3>
+                            <span>Fotografía — 2026</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="proyecto-fila">
+                <div class="proyecto-item grande">
+                    <a href="afterlife.html">
+                        <img src="img/placeholder4.jpg" alt="AfterLife Community">
+                        <div class="proyecto-info">
+                            <h3>Dirección Creativa<br><em>AfterLife</em></h3>
+                            <span>Dirección creativa — 2026</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bajo">
+        <span>Karim Carrasco</span>
+        <div class="ops">
+            <div class="boton"><a href="contacto.html">Contacto</a></div>
+            <div class="boton">2026</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

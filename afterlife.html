@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfterLife Community</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #caja {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            background-color: #0d0d0d;
+        }
+
+        .navegador {
+            width: 100%;
+            max-width: 1440px;
+            height: 70px;
+            background-color: #0d0d0d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2a2a2a;
+            box-sizing: border-box;
+            padding: 0 60px;
+        }
+
+        .nombre-nav {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #f5f2ee;
+            text-transform: uppercase;
+        }
+
+        .nombre-nav a {
+            text-decoration: none;
+            color: #f5f2ee;
+        }
+
+        .ops {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .boton {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .boton a {
+            text-decoration: none;
+            color: #555;
+        }
+
+        .boton.activo {
+            color: #f5f2ee;
+            border-bottom: 1px solid #f5f2ee;
+            padding-bottom: 2px;
+        }
+
+        #banner {
+            width: 100%;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.45);
+        }
+
+        #titulo-pagina {
+            position: absolute;
+            bottom: 70px;
+            left: 60px;
+            color: #f5f2ee;
+            z-index: 2;
+        }
+
+        #titulo-pagina p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0 0 16px 0;
+            opacity: 0.5;
+        }
+
+        #titulo-pagina h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 90px;
+            line-height: 0.9;
+            margin: 0;
+        }
+
+        #titulo-pagina h1 em {
+            font-style: italic;
+        }
+
+        #rol {
+            width: 100%;
+            padding: 50px 60px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #rol h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            font-weight: 300;
+            font-style: italic;
+            color: #f5f2ee;
+            margin: 0;
+            line-height: 1;
+        }
+
+        #rol span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        /* DESCRIPCION */
+        #descripcion {
+            width: 100%;
+            padding: 80px 60px;
+            box-sizing: border-box;
+            display: flex;
+            gap: 100px;
+            align-items: flex-start;
+        }
+
+        .desc-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 13px;
+            color: #444;
+            letter-spacing: 2px;
+            flex-shrink: 0;
+            padding-top: 8px;
+        }
+
+        .desc-texto {
+            max-width: 600px;
+        }
+
+        .desc-texto h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 300;
+            line-height: 1.2;
+            margin: 0 0 28px 0;
+            color: #f5f2ee;
+        }
+
+        .desc-texto h3 em {
+            font-style: italic;
+        }
+
+        .desc-texto p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: #777;
+            margin: 0 0 18px 0;
+        }
+
+        .desc-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            flex-shrink: 0;
+            padding-top: 8px;
+        }
+
+        .meta-item span {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #444;
+            margin-bottom: 4px;
+        }
+
+        .meta-item p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #f5f2ee;
+            margin: 0;
+        }
+
+        #trabajos {
+            width: 100%;
+            padding: 0 60px 100px 60px;
+            box-sizing: border-box;
+        }
+
+        .label-seccion {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #444;
+            margin-bottom: 24px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .fila-fotos {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 3px;
+        }
+
+        .foto-item {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .foto-item img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.7);
+            transition: 0.4s;
+        }
+
+        .foto-item:hover img {
+            filter: brightness(0.95);
+        }
+
+        .foto-item.grande {
+            flex: 1.5;
+        }
+
+        .bajo {
+            width: 100%;
+            max-width: 1440px;
+            height: 80px;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+        }
+
+        .bajo span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        .bajo .ops {
+            gap: 24px;
+        }
+
+        .bajo .boton {
+            color: #555;
+            font-size: 10px;
+        }
+
+        .bajo .boton a {
+            color: #555;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="caja">
+
+    <nav class="navegador">
+        <div class="nombre-nav">Karim Carrasco</div>
+        <div class="ops">
+            <div class="boton">Inicio</div>
+            <div class="boton"><a href="foto-proyecto1.html">Foto Editorial</a></div>
+            <div class="boton"><a href="foto-urbana.html">Foto Urbana</div>
+            <div class="boton"><a href="afterlife.html">Afterlife</a></div>
+            <div class="boton"><a href="contacto.html">Contacto</a></div>
+        </div>
+    </nav>
+
+    <div id="banner">
+        <img src="img/afterlife-banner.jpg" alt="AfterLife Community">
+        <div id="titulo-pagina">
+            <p>Dirección Creativa — 2026</p>
+            <h1>AfterLife<br><em>Community</em></h1>
+        </div>
+    </div>
+
+    <div id="rol">
+        <h2>Director Creativo</h2>
+        <span>AfterLife Community</span>
+    </div>
+
+    <div id="descripcion">
+        <div class="desc-num">004</div>
+        <div class="desc-texto">
+            <h3>Organización de<br><em>servidores</em></h3>
+            <p>Afterlife es una organización dedicada al hosteo de servidores en videojuegos y plataformas de comunicación, así como los servicios asociados.</p>
+            <p>Como director creativo, he liderado el desarrollo de la identidad visual y narrativa de muchos servidores, asegurando una experiencia coherente para cada una de las comunidades.</p>
+        </div>
+        <div class="desc-meta">
+            <div class="meta-item">
+                <span>Año</span>
+                <p>2026</p>
+            </div>
+            <div class="meta-item">
+                <span>Rol</span>
+                <p>Dirección creativa</p>
+            </div>
+            <div class="meta-item">
+                <span>Plataformas</span>
+                <p>Redes sociales</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bajo">
+        <span>Karim Carrasco</span>
+        <div class="ops">
+            <div class="boton"><a href="contacto.html">Contacto →</a></div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

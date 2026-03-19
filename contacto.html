@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f2ee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #caja {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            background-color: #f5f2ee;
+        }
+
+        /* NAV */
+        .navegador {
+            width: 100%;
+            max-width: 1440px;
+            height: 70px;
+            background-color: #f5f2ee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1a1a1a;
+            box-sizing: border-box;
+            padding: 0 60px;
+        }
+
+        .nombre-nav {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #1a1a1a;
+            text-transform: uppercase;
+        }
+
+        .nombre-nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .ops {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .boton {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .boton a {
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .boton.activo {
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 2px;
+        }
+
+        /* ENCABEZADO CONTACTO */
+        #encabezado {
+            width: 100%;
+            padding: 120px 60px 80px 60px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #encabezado p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #999;
+            margin: 0 0 24px 0;
+        }
+
+        #encabezado h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 100px;
+            line-height: 0.9;
+            margin: 0;
+            color: #1a1a1a;
+        }
+
+        #encabezado h1 em {
+            font-style: italic;
+        }
+
+        /* CONTENIDO CONTACTO */
+        #contenido {
+            width: 100%;
+            padding: 80px 60px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 80px;
+        }
+
+        .col-texto {
+            max-width: 500px;
+        }
+
+        .col-texto p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.9;
+            color: #444;
+            margin: 0 0 30px 0;
+        }
+
+        .col-texto a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: #1a1a1a;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 16px;
+            transition: 0.2s;
+        }
+
+        .col-texto a:hover {
+            border-bottom-color: #1a1a1a;
+        }
+
+        .col-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            flex-shrink: 0;
+            padding-top: 4px;
+        }
+
+        .link-item {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #ddd;
+            padding: 24px 0;
+        }
+
+        .link-item:first-child {
+            padding-top: 0;
+        }
+
+        .link-item span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .link-item a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .link-item a:hover {
+            font-style: italic;
+        }
+
+        /* FRASE FINAL */
+        #frase {
+            width: 100%;
+            padding: 80px 60px;
+            box-sizing: border-box;
+            border-top: 1px solid #ddd;
+        }
+
+        #frase p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.15;
+            color: #1a1a1a;
+            margin: 0;
+            max-width: 800px;
+        }
+
+        /* FOOTER */
+        .bajo {
+            width: 100%;
+            max-width: 1440px;
+            height: 80px;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+        }
+
+        .bajo span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        .bajo .ops {
+            gap: 24px;
+        }
+
+        .bajo .boton {
+            color: #666;
+            font-size: 10px;
+        }
+
+        .bajo .boton a {
+            color: #666;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="caja">
+
+    <nav class="navegador">
+        <div class="nombre-nav">Karim Carrasco</div>
+        <div class="ops">
+            <div class="boton"><a href="index.html">Inicio</a></div>
+            <div class="boton"><a href="foto-proyecto1.html">Foto Editorial</a></div>
+            <div class="boton"><a href="foto-urbana.html">Foto Urbana</div>
+            <div class="boton"><a href="afterlife.html">Afterlife</a></div>
+            <div class="boton"><a href="contacto.html">Contacto</a></div>
+        </div>
+    </nav>
+
+    <div id="encabezado">
+        <p>Hablemos</p>
+        <h1>Creemos<br><em>juntos</em></h1>
+    </div>
+
+    <div id="contenido">
+        <div class="col-texto">
+            <p>Disponible para proyectos fotográficos, colaboraciones creativas y dirección de contenido visual.</p>
+            <a href="mailto:karimosw3@email.com">karimosw3@email.com</a>
+        </div>
+
+        <div class="col-links">
+            <div class="link-item">
+                <span>Instagram</span>
+                <a href="https://instagram.com/saboracafeina" target="_blank">@saboracafeina</a>
+            </div>
+            <div class="link-item">
+                <span>Ubicación</span>
+                <a>Sonora, México</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="frase">
+        <p>Crecerán<br>hermosos campos.</p>
+    </div>
+
+    <div class="bajo">
+        <span>Karim Carrasco 2026</span>
+        <div class="ops">
+            <div class="boton"><a href="index.html">Volver al inicio</a></div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
